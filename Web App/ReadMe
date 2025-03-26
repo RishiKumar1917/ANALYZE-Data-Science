@@ -1,1 +1,78 @@
+# Iris Flower Classification
+
+## Overview
+This project is a Machine Learning-based web application that classifies Iris flowers into three species: **Setosa, Versicolor, and Virginica** using **Random Forest Classifier**. The model is deployed using **Streamlit**, and it provides a simple interface for users to input flower measurements and get predictions.
+
+## Features
+- 🌸 **Iris Flower Classification** using **RandomForestClassifier**
+- 📊 **Interactive Web Interface** built with **Streamlit**
+- 🐍 **Machine Learning Model** trained on the classic **Iris Dataset**
+- 🐳 **Docker Support** for easy deployment
+- 🔍 **SHAP Analysis** for Model Explainability
+- 🚀 **CI/CD Pipeline** using **GitHub Actions**
+
+## Installation & Setup
+### 1. Clone the Repository
+```sh
+git clone https://github.com/yourusername/Iris_Flower_Classification.git
+cd Iris_Flower_Classification
+```
+
+### 2. Install Dependencies
+```sh
+pip install -r requirements.txt
+```
+
+### 3. Run the Web App
+```sh
+streamlit run app.py
+```
+
+## Docker Deployment
+Build and run the container:
+```sh
+docker build -t iris-classifier .
+docker run -p 8501:8501 iris-classifier
+```
+
+## Project Structure
+```
+📂 Iris_Flower_Classification
+├── app.py                 # Streamlit Web App
+├── iris_model.pkl         # Trained ML Model
+├── Dockerfile             # Docker Configuration
+├── requirements.txt       # Python Dependencies
+├── test_model.py          # Unit Testing using pytest
+├── .github/workflows/     # CI/CD Pipeline for Automation
+└── README.md              # Documentation
+```
+
+## Model Training
+The **Iris dataset** from `sklearn.datasets` is used to train a **Random Forest Classifier**. The model is saved using `joblib` and used for predictions.
+
+## Unit Testing
+Run the test suite using **pytest**:
+```sh
+pytest test_model.py
+```
+
+## CI/CD Pipeline
+GitHub Actions automatically tests and validates every new push. The workflow file is located in `.github/workflows/python-app.yml`.
+
+## Model Explainability (SHAP)
+SHAP (SHapley Additive exPlanations) is used to analyze feature importance and model predictions.
+
+```python
+import shap
+explainer = shap.Explainer(model)
+shap_values = explainer(X_test)
+shap.summary_plot(shap_values, X_test)
+```
+
+## Contributing
+Pull requests are welcome! If you'd like to improve this project, feel free to fork the repo and submit a PR.
+
+## License
+MIT License. See `LICENSE` for details.
+
 
